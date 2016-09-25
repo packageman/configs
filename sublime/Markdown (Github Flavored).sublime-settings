@@ -1,0 +1,10 @@
+{
+	"extensions":
+	[
+		"markdown",
+		"mdown",
+		"md"
+	],
+	"line_numbers": true,
+	"wrap_width": 119
+}

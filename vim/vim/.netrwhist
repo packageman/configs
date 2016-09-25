@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/etc/supervisor/conf.d'
+let g:netrw_dirhist_2='/sys/devices/pci0000:00/0000:00:1c.3/0000:04:00.0/net/eth0'
+let g:netrw_dirhist_3='/usr/lib/glib-networking'
+let g:netrw_dirhist_4='/home/byron/Downloads/packages/Finalspeed/fsclient'
+let g:netrw_dirhist_5='/home/byron/Downloads/packages/Finalspeed'

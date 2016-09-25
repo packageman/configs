@@ -1,0 +1,113 @@
+# Path to your oh-my-zsh installation.
+  export ZSH=/home/byron/.oh-my-zsh
+
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="bira"
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git sudo)
+
+# User configuration
+
+# export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+# export MANPATH="/usr/local/man:$MANPATH"
+
+export GOROOT=$HOME/go
+export PATH=$PATH:$GOROOT/bin
+
+source $ZSH/oh-my-zsh.sh
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias zshconfig="vim ~/.zshrc"
+alias c='clear'
+alias lsnet='sudo netstat -luntp'
+alias lsestablishedips='netstat -na | grep ESTABLISHED | awk '\''{print $5}'\'' | awk -F : '\''{print $1}'\'' | sort | uniq -c | sort -r'
+alias lsestablishedconns='sudo netstat -anp | grep ESTABLISHED'
+alias lstcpconnstats='netstat -n | awk '\''/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}'\'''
+alias ll='ls -alF'
+alias psg='ps -ef | grep $*'
+alias kk='kill -9 $*'
+alias gpf='git add .; git commit --amend; git push -f;'
+alias tree='gvfs-tree'
+alias ep='export http_proxy=http://127.0.0.1:8188; export https_proxy=http://127.0.0.1:8188'
+alias up='unset http_proxy; unset https_proxy'
+alias prettyjson='python -m json.tool'
+alias iostat='iostat -xz'
+alias mpstat='mpstat -P ALL'
+alias mtop='sudo ps_mem'
+alias rmexitedcontainers='docker ps -a | egrep "Exited | Created" | cut -f 1 -d " " | xargs docker rm'
+alias rmuselessvolumes='docker volume ls -q | xargs docker volume rm'
+alias dockviz="docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz"
+
+export EDITOR=vim
+
+export NVM_DIR="/home/byron/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+[[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
