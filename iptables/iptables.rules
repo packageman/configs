@@ -26,6 +26,7 @@ COMMIT
 -A INPUT -p tcp -m tcp --dport 4443 -m comment --comment ngrok_tunnel -j ACCEPT
 -A INPUT -p tcp -m tcp --dport 14001 -m comment --comment ss_server_tcp -j ACCEPT
 -A INPUT -p udp -m udp --dport 14001 -m comment --comment ss_server_udp -j ACCEPT
+-A INPUT -p udp --match multiport --dport 60001:61000 -m comment --comment mosh_server_udp -j ACCEPT
 -A INPUT -p icmp -m icmp --icmp-type any -j ACCEPT
 -A INPUT -m limit --limit 5/min -j LOG --log-prefix "iptables denied: " --log-level 7
 -A INPUT -j REJECT --reject-with icmp-port-unreachable
